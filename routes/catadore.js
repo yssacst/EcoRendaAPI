@@ -3,14 +3,14 @@ const conn = require('../conn')
 const catadores = express.Router()
 
 catadores.get('/catadores', (req, res, next) => {
-    conn.query('select * from usuarios', (error, result) => {
+    conn.query('select * from usuario', (error, result) => {
         res.json(result)
     })
 })
 
 catadores.get('/catadores/id=:id', (req, res, next) => {
     let dados = req.params.id
-    conn.query(`select * from usuarios where id=${dados}`, (error, result) => {
+    conn.query(`select * from usuario where id=${dados}`, (error, result) => {
         res.json(result)
     })
 })
